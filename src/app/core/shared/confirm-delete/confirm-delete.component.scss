@@ -1,0 +1,37 @@
+.confirmation-dialog {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+
+  }
+  
+  .confirmation-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-content {
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .cancel-button {
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .delete-button {
+    background-color: #ff5252;
+    color: #fff;
+  }
+  
+  .cancel-button:hover,
+  .delete-button:hover {
+    opacity: 0.8;
+  }
+  

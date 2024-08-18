@@ -1,0 +1,187 @@
+<div>
+  <a routerLink="/dashboard" class="text-primary text-decoration-none pointer">{{ 'myTasks.DMS' | translate }} /</a>
+  <span class="text-black-50 pointer">{{ 'myTasks.Clients' | translate }} /</span>
+  <a class="text-decoration-none pointer">{{ 'myTasks.MyTasks' | translate }}</a>
+</div>
+<div class="row pt-3">
+  <div class="col-md-12 text-end">
+    <mat-form-field>
+      <mat-label>{{ 'myTasks.Filter' | translate }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" class="w-100" />
+    </mat-form-field>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="client">
+    <th mat-header-cell *matHeaderCellDef>{{ 'myTasks.Client' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.client }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{ 'myTasks.Item' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>{{ 'myTasks.Type' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="currentstate">
+    <th mat-header-cell *matHeaderCellDef>{{ 'myTasks.CurrentState' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.currentState }}</td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>{{ 'myTasks.Actions' | translate }}</th>
+    <td mat-cell *matCellDef="let item">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+        (click)="onRightClick(item.id)"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <ng-container *ngIf="showContextMenu">
+          <button mat-menu-item (click)="openViewDialog(item.id)">
+            <i class="fa fa-eye"></i> {{ 'myTasks.View' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="openAddDocumentsDialog(item.id)"
+            *ngIf="toggleAdminDocs"
+          >
+            <i class="fa fa-file"></i> {{ 'myTasks.Documents' | translate }}
+          </button>
+          <button mat-menu-item [routerLink]="['/node-tracking', item.id]">
+            <i class="fa fa-location-arrow"></i> {{ 'myTasks.Tracking' | translate }}
+          </button>
+          <hr class="m-0 p-0" />
+          <button
+            mat-menu-item
+            (click)="AddPopup(item.id, item.type)"
+            *ngIf="togglePublichednodes"
+          >
+            <i class="fa fa-plus"></i> {{ 'myTasks.Add' | translate }}
+            {{ getText(item.type) }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="edit(item.id)"
+            *ngIf="togglePublichednodes"
+          >
+            <i class="fa fa-edit"></i> {{ 'myTasks.Edit' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="OpenConfirmation('Delete', item.id, item.type)"
+            *ngIf="togglePublichednodes"
+          >
+            <i class="fa fa-trash"></i> {{ 'myTasks.Delete' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="Duplicate(item.id)"
+            *ngIf="toggleduplicate"
+          >
+            <i class="fa fa-clone"></i> {{ 'myTasks.Duplicate' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="OpenConfirmation('Publish', item.id, item.type)"
+            *ngIf="togglePublichednodes"
+          >
+            <i class="fa fa-upload"></i> {{ 'myTasks.Publish' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="downloadFile(item.id)"
+            *ngIf="toggleAdmiexportnDocs"
+          >
+            <i class="fa fa-download"></i>
+            {{ 'myTasks.ExportAllDocuments' | translate }}
+          </button>
+        </ng-container>
+        <ng-container *ngIf="toggleActions">
+          <button mat-menu-item (click)="openViewDialog(item.id)">
+            <i class="fa fa-eye"></i> {{ 'myTasks.View' | translate }}
+          </button>
+          <button mat-menu-item (click)="openAddDocumentsDialog(item.id)">
+            <i class="fa fa-file"></i> {{ 'myTasks.Documents' | translate }}
+          </button>
+          <button mat-menu-item [routerLink]="['/node-tracking', item.id]">
+            <i class="fa fa-location-arrow"></i> {{ 'myTasks.Tracking' | translate }}
+          </button>
+          <hr class="m-0 p-0" />
+          <button
+            mat-menu-item
+            (click)="OpenConfirmation('Approve', item.id, item.type)"
+          >
+            <i class="fa fa-check"></i> {{ 'myTasks.Approve' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="OpenConfirmation('Reject', item.id, item.type)"
+            *ngIf="toggleReject"
+          >
+            <i class="fa fa-times"></i> {{ 'myTasks.Reject' | translate }}
+          </button>
+          <button
+            mat-menu-item
+            (click)="edit(item.id)"
+            *ngIf="toggleEditEndUser"
+          >
+            <i class="fa fa-edit"></i> {{ 'myTasks.EditEndUser' | translate }}
+          </button>
+        </ng-container>
+        <ng-container *ngIf="toggleDocs">
+          <button mat-menu-item (click)="openViewDialog(item.id)">
+            <i class="fa fa-eye"></i> {{ 'myTasks.View' | translate }}
+          </button>
+          <button mat-menu-item (click)="openAddDocumentsDialog(item.id)">
+            <i class="fa fa-file"></i> {{ 'myTasks.Documents' | translate }}
+          </button>
+          <button mat-menu-item [routerLink]="['/node-tracking', item.id]">
+            <i class="fa fa-location-arrow"></i> {{ 'myTasks.Tracking' | translate }}
+          </button>
+          <hr class="m-0 p-0" />
+          <button
+            mat-menu-item
+            (click)="OpenConfirmation('Finish & Submit', item.id, item.type)"
+          >
+            <i class="fa fa-check-circle"></i>
+            {{ 'myTasks.FinishSubmitDocuments' | translate }}
+          </button>
+        </ng-container>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr
+    mat-header-row
+    *matHeaderRowDef="['client', 'name', 'type', 'currentstate', 'action']"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="
+      let row;
+      columns: ['client', 'name', 'type', 'currentstate', 'action']
+    "
+  ></tr>
+</table>
+
+<div *ngIf="dataSource.data.length === 0" class="text-center pt-5">
+  <mat-icon>info</mat-icon>
+  <p>{{ 'myTasks.NoDataAvailable' | translate }}</p>
+</div>
+
+<mat-paginator
+  *ngIf="dataSource.data.length > 0"
+  [length]="totalCount"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

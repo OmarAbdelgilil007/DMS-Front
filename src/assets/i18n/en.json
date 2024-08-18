@@ -1,0 +1,253 @@
+{
+    "new-department":"New Department",
+    "Filter":"Filter",
+    "Department-Name":"Department Name",
+    "Department-Name-sub":"Sub Department",
+    "Actions":"Actions",
+    "Edit":"Edit",
+    "Delete":"Delete",
+    "View":"View",
+    "Duplicate":"Duplicate",
+    "Tracking":"Tracking",
+    "Department-placeholder":"Ex. Department name",
+    "new-client":"New Client",
+    "new-user":"New User",
+    "User-Name":"User Name",
+    "cancle-btn":"Cancle",
+    "apply-btn":"Save",
+    "client-Name":"Client Name",
+    "role-placeholder":"Ex. Role name",
+    "user-placeholder":"Ex. User name",
+    "client-placeholder":"Ex. Client name",
+    "client-desc":"Description",
+    "update-btn":"Update",
+    "delete-btn":"Delete",
+    "None":"None",
+    "Role-Name":"Role Name",
+    "Confirm-Delete":"Confirm Deletion",
+    "Delete-qoute":"Are you sure you want to delete this",
+    "close":"Close",
+    "department-details":"Department Details",
+    "userName":"User Name",
+    "fullName":"Full Name",
+    "phone":"Phone",
+    "Email":"Email",
+    "Address":"Address",
+    "reset-password":"Reset Password",
+    "user-details":"User Details ",
+    "department":"Department",
+    "manager":"Manager",
+    "reset-password-qoute":"Are you sure you want to reset password for",
+    "Password":"Password",
+    "Confirm-Password":"Confirm Password",
+    "Roles":"Roles",
+    "logout":"Logout",
+    "profile":"Profile",
+    "slug":"Slug",
+    "tree":"Tree",
+    "EDIT_CLIENT": "Edit Client",
+    "ADD_CLIENT": "Add Client",
+    "Dashboard":"Dashboard",
+    "user-management":"Users Management",
+    "Client-management":"Clients Management",
+    "Users":"Users",
+    "Departments":"Departments",
+    "Clients":"Clients",
+    "sub-Department":"Sub Departments",
+    "DMS": "DMS",
+    "Logs": "Logs",
+    "Login Logs": "Login Logs",
+    "Audit Logs": "Audits Logs",
+    "My Tasks": "My Tasks",
+    "Change Password":"Change Password",
+    "Documents":"Documents",
+    "Sample Document":"Sample Document",
+    "Reference Document":"Reference Document",
+    "Actual Documents":"Actual Documents",
+    "Add Documents":"Add Documents",
+    "Uploaded Documents:":"Uploaded Documents:",
+    "Note":"Note",
+    "Note-qoute":"Password must be at least 6 characters",
+    "Start Date": "Start Date",
+    "End Date": "End Date",
+    "Officer": "Officer",
+    "Admin": "Admin",
+    "QC1": "QC1",
+    "QC2": "QC2",
+    "End User": "End User",
+    "Add": "Add",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Are you sure you want to": "Are you sure you want to",
+  "Comment": "Comment",
+  "Publish":"Publish",
+  "Export All Documents":"Export All Documents",
+  "Approve":"Approve",
+  "Reject":"Reject",
+  "Edit End User":"Edit End User",
+  "Finish & Submit Documents":"Finish & Submit Documents",
+    "Finish & Submit": "Finish & Submit",
+   
+
+  "Confirm Delete Client": "Confirm Delete Client",
+  "Please enter the name of the client:": "Please enter the name of the client:",
+  "Client Name": "Client Name",
+  "Are you sure you want to delete this client?": "Are you sure you want to delete this client?",
+  "Note:": "Note:",
+  "Deleting this item will also delete its related entities, such as projects, containers, domains, and items.": "Deleting this item will also delete its related entities, such as projects, containers, domains, and items.",
+  "Tree": "Tree",
+  "Node Tracking": "Node Tracking",
+  "User": "User",
+  "State": "State",
+  "Time": "Time",
+  "Node Details": "Node Details",
+  "Name": "Name",
+  "Description": "Description",
+  "Client Details": "Client Details",
+  "Client Description": "Client Description",
+  "Close": "Close",
+  "Department": {
+    "success": {
+      "added": "Department added successfully.",
+      "updated": "Department updated successfully.",
+      "deleted": "Department deleted successfully."
+    },
+    "error": {
+      "failedToAdd": "An error occurred while adding the department.",
+      "failedToUpdate": "An error occurred while updating the department.",
+      "failedToDelete": "An error occurred while deleting the department.",
+      "duplicateName": "There is already a department with this name."
+    }
+  },
+  "changePassword": {
+    "success": "Password changed successfully.",
+    "error": "Failed to change password."
+  },
+  "warning": "Warning",
+  "success": "Success",
+  "error": "Error",
+  "deleteUser": {
+    "warning": {
+      "deleted": "User deleted successfully."
+    },
+    "error": {
+      "notDeleted": "Cannot delete user as it is referenced in nodes."
+    }
+  },
+  "registerUser": {
+    "success": {
+      "added": "User added successfully.",
+      "updated": "User updated successfully."
+    },
+    "error": {
+      "registrationFailed": "User registration failed.",
+      "updateFailed": "User update failed."
+    }
+  },
+  "document": {
+    "addSuccess": "Documents added successfully",
+    "addError": "Error adding documents",
+    "deleteSuccess": "Document deleted successfully",
+    "deleteError": "Error deleting document"
+  },
+  "client": {
+    "addSuccess": "Client added successfully.",
+    "addError": "Client addition failed.",
+    "updateSuccess": "Client updated successfully.",
+    "updateError": "Client update failed."
+  },
+  "confirmName": {
+    "incorrectName": "The client name is not correct."
+  },
+  "toastrMessages": {
+    "success": "Client deleted successfully.",
+    "error": "Failed to delete Client."
+  },
+  "resetPassword": {
+    "success": "Password changed successfully.",
+    "error": "Failed to change password."
+  },
+  "commentRequired": "Please Write Comment before rejecting.",
+  "nodePublishedSuccess": "Node published successfully.",
+  "nodeApprovedSuccess": "Node approved successfully.",
+  "nodeRejectedSuccess": "Node rejected successfully.",
+  "nodeFinishedSubmittedSuccess": "Node finished & Submitted successfully.",
+  "errorPublish": "Please Assign users to the node and add all documents before publishing it.",
+  "errorApprove": "Please assign End user to the node before approving it.",
+  "errorFinishSubmit": "Please Upload document before finishing the node.",
+  "Logout": {
+    "successMessage": "You have successfully logged out.",
+    "title": "Logout"
+  },
+  "auditLogs": {
+    "DMS": "DMS",
+    "Logs": "Logs",
+    "AuditLogs": "Audit Logs",
+    "Filter": "Filter",
+    "DateTime": "Date Time",
+    "Type": "Type",
+    "Name": "Name",
+    "Role": "Role",
+    "TableName": "Table Name",
+    "NewValues": "New Values",
+    "NoValues": "No values"
+  },
+  "loginLogs": {
+    "DMS": "DMS",
+    "Logs": "Logs",
+    "LoginLogs": "Login Logs",
+    "Filter": "Filter",
+    "LoginDate": "Login Date",
+    "IPAddress": "IP Address",
+    "Role": "Role",
+    "FullName": "Full Name",
+    "Email": "Email",
+    "NoDataAvailable": "No data available"
+  },
+  "myTasks": {
+    "DMS": "DMS",
+    "Clients": "Clients",
+    "MyTasks": "My Tasks",
+    "Filter": "Filter",
+    "Client": "Client",
+    "Item": "Item",
+    "Type": "Type",
+    "CurrentState": "Current State",
+    "Actions": "Actions",
+    "View": "View",
+    "Documents": "Documents",
+    "Tracking": "Tracking",
+    "Add": "Add",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Duplicate": "Duplicate",
+    "Publish": "Publish",
+    "ExportAllDocuments": "Export All Documents",
+    "Approve": "Approve",
+    "Reject": "Reject",
+    "EditEndUser": "Edit End User",
+    "FinishSubmitDocuments": "Finish & Submit Documents",
+    "NoDataAvailable": "No data available"
+  },
+  "footer": {
+    "DMS": "DMS"
+  },
+  "breadcrumbs": {
+    "DMS": "DMS",
+    "Users": "Users",
+    "Departments": "Departments",
+    "Roles": "Roles",
+    "Clients":"Clients",
+     "Notifications": "Notifications"
+  },
+  "Block":"Block",
+  "Unblock":"Unblock",
+  "Edit-user":"Edit User",
+  "Update":"Update",
+  "Edit Department": "Edit Department",
+  "Add Department": "Add Department"
+
+  
+
+    
+}

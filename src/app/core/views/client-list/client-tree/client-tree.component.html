@@ -1,0 +1,148 @@
+<div *ngIf="chartOptions.series && chartOptions.series.length">
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 100%; height: 600px; display: block"
+  ></highcharts-chart>
+</div>
+<div
+  *ngIf="showContextMenu"
+  class="context-menu"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+>
+  <ul>
+    <li (click)="openViewDialog(SelectedNodeId)">
+      <i class="fa fa-eye"></i> {{ "View" | translate }}
+    </li>
+    <li
+      (click)="openAddDocumentsDialog(SelectedNodeId)"
+      *ngIf="toggleAdminDocs"
+    >
+      <i class="fa fa-file"></i> {{ "Documents" | translate }}
+    </li>
+    <li [routerLink]="['/node-tracking', SelectedNodeId]">
+      <i class="fa fa-location-arrow"></i> {{ "Tracking" | translate }}
+    </li>
+    <hr class="m-0 p-0" />
+    <li (click)="AddPopup()" *ngIf="togglePublichednodes">
+      <i class="fa fa-plus"></i> {{ "Add" | translate }} {{ AddText }}
+    </li>
+    <li (click)="edit()" *ngIf="togglePublichednodes">
+      <i class="fa fa-edit"></i> {{ "Edit" | translate }}
+    </li>
+    <li (click)="OpenConfirmation('Delete')" *ngIf="togglePublichednodes">
+      <i class="fa fa-trash"></i> {{ "Delete" | translate }}
+    </li>
+    <li (click)="Duplicate()" *ngIf="toggleduplicate">
+      <i class="fa fa-clone"></i> {{ "Duplicate" | translate }}
+    </li>
+    <li (click)="OpenConfirmation('Publish')" *ngIf="togglePublichednodes">
+      <i class="fa fa-upload"></i> {{ "Publish" | translate }}
+    </li>
+    <li (click)="downloadFile(SelectedNodeId)" *ngIf="toggleAdmiexportnDocs">
+      <i class="fa fa-download"></i> {{ "Export All Documents" | translate }}
+    </li>
+  </ul>
+</div>
+<div
+  *ngIf="toggleActions"
+  class="context-menu"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+>
+  <ul>
+    <li (click)="openViewDialog(SelectedNodeId)">
+      <i class="fa fa-eye"></i> {{ "View" | translate }}
+    </li>
+    <li (click)="openAddDocumentsDialog(SelectedNodeId)">
+      <i class="fa fa-file"></i> {{ "Documents" | translate }}
+    </li>
+    <li [routerLink]="['/node-tracking', SelectedNodeId]">
+      <i class="fa fa-location-arrow"></i> {{ "Tracking" | translate }}
+    </li>
+    <hr class="m-0 p-0" />
+    <li (click)="OpenConfirmation('Approve')">
+      <i class="fa fa-check"></i> {{ "Approve" | translate }}
+    </li>
+    <li (click)="OpenConfirmation('Reject')" *ngIf="toggleReject">
+      <i class="fa fa-times"></i> {{ "Reject" | translate }}
+    </li>
+    <li (click)="edit()" *ngIf="toggleEditEndUser">
+      <i class="fa fa-edit"></i> {{ "Edit End User" | translate }}
+    </li>
+  </ul>
+</div>
+<div
+  *ngIf="toggleDocs"
+  class="context-menu"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+>
+  <ul>
+    <li (click)="openViewDialog(SelectedNodeId)">
+      <i class="fa fa-eye"></i> {{ "View" | translate }}
+    </li>
+    <li (click)="openAddDocumentsDialog(SelectedNodeId)">
+      <i class="fa fa-file"></i> {{ "Documents" | translate }}
+    </li>
+    <li [routerLink]="['/node-tracking', SelectedNodeId]">
+      <i class="fa fa-location-arrow"></i> {{ "Tracking" | translate }}
+    </li>
+    <hr class="m-0 p-0" />
+    <li (click)="OpenConfirmation('Finish & Submit')">
+      <i class="fa fa-check-circle"></i>
+      {{ "Finish & Submit Documents" | translate }}
+    </li>
+  </ul>
+</div>
+<div
+  *ngIf="Readonly"
+  class="context-menu"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+>
+  <ul>
+    <li (click)="openViewDialog(SelectedNodeId)">
+      <i class="fa fa-eye"></i> {{ "View" | translate }}
+    </li>
+    <li (click)="openAddDocumentsDialog(SelectedNodeId)">
+      <i class="fa fa-file"></i> {{ "Documents" | translate }}
+    </li>
+    <li [routerLink]="['/node-tracking', SelectedNodeId]">
+      <i class="fa fa-location-arrow"></i> {{ "Tracking" | translate }}
+    </li>
+    <hr class="m-0 p-0" />
+  </ul>
+</div>
+<div
+  *ngIf="showCPMenu"
+  class="context-menu"
+  [style.left.px]="contextMenuPosition.x"
+  [style.top.px]="contextMenuPosition.y"
+>
+  <ul>
+    <li (click)="openViewDialog(SelectedNodeId)">
+      <i class="fa fa-eye"></i> {{ "View" | translate }}
+    </li>
+    <li [routerLink]="['/node-tracking', SelectedNodeId]">
+      <i class="fa fa-location-arrow"></i> {{ "Tracking" | translate }}
+    </li>
+    <hr class="m-0 p-0" />
+    <li (click)="AddPopup()">
+      <i class="fa fa-plus"></i> {{ "Add" | translate }} {{ AddText }}
+    </li>
+    <li (click)="edit()">
+      <i class="fa fa-edit"></i> {{ "Edit" | translate }}
+    </li>
+    <li (click)="OpenConfirmation('Delete')" *ngIf="togglePublichednodes">
+      <i class="fa fa-trash"></i> {{ "Delete" | translate }}
+    </li>
+    <li (click)="Duplicate()" *ngIf="toggleduplicate">
+      <i class="fa fa-clone"></i> {{ "Duplicate" | translate }}
+    </li>
+    <li (click)="downloadFile(SelectedNodeId)">
+      <i class="fa fa-download"></i> {{ "Export All Documents" | translate }}
+    </li>
+  </ul>
+</div>

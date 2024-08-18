@@ -1,0 +1,60 @@
+<section class="background">
+  <div class="bg-gradient min-vh-100 d-flex flex-row align-items-center justify-content-center">
+    <c-container>
+      <c-row class="justify-content-center w-100">
+        <c-col lg="10" xl="8">
+          <c-card-group>
+            <c-card class="p-4 h-100 card-wider">
+              <c-card-body>
+                <form cForm [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <h1>Login</h1>
+                  <p class="text-body-secondary">Sign In to your account</p>
+                  
+                  <c-input-group class="mb-3">
+                    <span cInputGroupText>
+                      <svg cIcon name="cilUser"></svg>
+                    </span>
+                    <input autoComplete="username" cFormControl formControlName="username" placeholder="Username" />
+                  </c-input-group>
+                  <c-input-group class="mb-4">
+                    <span cInputGroupText>
+                      <svg cIcon name="cilLockLocked"></svg>
+                    </span>
+                    <input
+                      autoComplete="current-password"
+                      cFormControl
+                      placeholder="Password"
+                      [type]="hide ? 'password' : 'text'"
+                      formControlName="password"
+                    />
+                    <a class="show-password text-dark opacity-50" (click)="this.hide = !this.hide">
+                      <i class="fa-solid" [class]="hide ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </a>
+                  </c-input-group>
+                  
+                  <c-row>
+                    <c-col xs="6">
+                      <button type="submit" cButton class="px-4 btn-blue" [disabled]="loginForm.invalid || isLoading">
+                        Login
+                        <div *ngIf="isLoading" class="spinner-border text-primary spinner-sm ms-2" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </button>
+                    </c-col>
+                  </c-row>
+                </form>
+              </c-card-body>
+              <a href="javascript:void(0)" class="text-end text-decoration-none text-primary" (click)="openForgotPasswordDialog()">Forgot Password?</a>
+            </c-card>
+            <c-card class="text-white card-wider">
+              <img src="../../../../assets/images/avatars/DMS-Banner.png" class="w-100 image-width" alt="">
+              <c-card-body class="text-center">
+                <div></div>
+              </c-card-body>
+            </c-card>
+          </c-card-group>
+        </c-col>
+      </c-row>
+    </c-container>
+  </div>
+</section>

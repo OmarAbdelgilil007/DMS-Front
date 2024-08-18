@@ -1,0 +1,48 @@
+<div>
+  <a routerLink="/dashboard" class="text-primary text-decoration-none pointer">{{ 'loginLogs.DMS' | translate }} / </a>
+  <span class="text-black-50 pointer">{{ 'loginLogs.Logs' | translate }} /</span>
+  <a class="text-decoration-none pointer">{{ 'loginLogs.LoginLogs' | translate }}</a>
+</div>
+<div class="row pt-3">
+  <div class="col-md-12 text-end">
+    <mat-form-field>
+      <mat-label>{{ 'loginLogs.Filter' | translate }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" class="w-100">
+    </mat-form-field>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="loginDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'loginLogs.LoginDate' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.loginDate | date: 'medium' }}</td>
+  </ng-container>
+  <ng-container matColumnDef="ip">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'loginLogs.IPAddress' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.ip }}</td>
+  </ng-container>
+  <ng-container matColumnDef="roleName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'loginLogs.Role' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.roleName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'loginLogs.FullName' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'loginLogs.Email' | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <!-- Define the header and row definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div *ngIf="dataSource.data.length === 0" class="text-center pt-5">
+  <mat-icon>info</mat-icon>
+  <p>{{ 'loginLogs.NoDataAvailable' | translate }}</p>
+</div>
+
+<mat-paginator *ngIf="dataSource.data.length > 0" [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)">
+</mat-paginator>

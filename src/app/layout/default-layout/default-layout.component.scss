@@ -1,0 +1,77 @@
+:host {
+  .ng-scrollbar {
+    --scrollbar-padding: 1px;
+    --scrollbar-size: 5px;
+    --scrollbar-thumb-color: var(--cui-gray-500, #999);
+    --scrollbar-thumb-hover-color: var(--cui-gray-400, #999);
+    --scrollbar-hover-size: calc(var(--scrollbar-size) * 1.5);
+  }
+}
+
+// ng-scrollbar css variables
+//.cui-scrollbar {
+//  --scrollbar-border-radius: 7px;
+//  --scrollbar-padding: 1px;
+//  --scrollbar-viewport-margin: 0;
+//  --scrollbar-track-color: transparent;
+//  --scrollbar-wrapper-color: transparent;
+//  --scrollbar-thumb-color: rgba(0, 0, 0, 0.2);
+//  --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color);
+//  --scrollbar-size: 5px;
+//  --scrollbar-hover-size: var(--scrollbar-size);
+//  --scrollbar-thumb-transition: height ease-out 150ms, width ease-out 150ms;
+//  --scrollbar-track-transition: height ease-out 150ms, width ease-out 150ms;
+//}
+
+.light-background{
+  background-color: rgb(187, 187, 234) !important;
+  
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.sidebar-header {
+  font-weight: bold;
+}
+
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #726f6f;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a.active {
+  background-color: #e0e0e0;
+}
+
+.sidebar-nav li a mat-icon {
+  margin-right: 8px;
+}
+
+.sidebar-submenu {
+  list-style-type: none;
+  padding: 0 0 0 16px;
+  margin: 0;
+}
+
+.sidebar-submenu li a {
+  padding-left: 32px;
+}

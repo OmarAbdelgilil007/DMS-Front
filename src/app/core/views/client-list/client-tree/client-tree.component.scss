@@ -1,0 +1,30 @@
+.dotted {
+  stroke-dasharray: 2;
+}
+
+.context-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.context-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu ul li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.context-menu ul li:hover {
+  background-color: #f0f0f0;
+}
+i{
+  color: #5856d6;
+  padding-right: 5px;
+}

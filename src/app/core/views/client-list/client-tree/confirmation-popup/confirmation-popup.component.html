@@ -1,0 +1,38 @@
+<div class="d-block d-flex justify-content-between">
+  <h3 class="ps-3 pt-2">{{ data.processName | translate }} {{ data.NodeName }}</h3>
+  <a
+    class="cancle-icon text-end text-decoration-none px-2 py-1"
+    mat-dialog-close
+    ><i class="fa-solid fa-xmark"></i
+  ></a>
+</div>
+<hr />
+<div class="Node-actions">
+  <h6>
+    {{ 'Are you sure you want to' | translate }} {{ data.processName | translate }}  {{ data.NodeName }}?
+  </h6>
+  <ng-container
+    *ngIf="data.processName === 'Approve' || data.processName === 'Reject'"
+  >
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>{{ 'Comment' | translate }}</mat-label>
+      <textarea matInput [(ngModel)]="comment"></textarea>
+    </mat-form-field>
+  </ng-container>
+</div>
+<hr />
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button mat-button mat-dialog-close class="btn cancel-button me-2">
+    {{ 'Cancel' | translate }}
+  </button>
+  <button
+    mat-button
+    mat-dialog-close
+    type="submit"
+    class="btn btn-primary text-white"
+    [ngClass]="{ 'btn-danger': data.processName === 'Delete' }"
+    (click)="submit()"
+  >
+  {{ data.processName | translate }}
+  </button>
+</mat-dialog-actions>

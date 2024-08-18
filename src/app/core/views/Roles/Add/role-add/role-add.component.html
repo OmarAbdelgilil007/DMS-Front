@@ -1,0 +1,19 @@
+
+<form class="popup-form" [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+  <div  class="form-group">
+    <label for="roleName" class="form-label">Role Name</label>
+    <input type="text" class="form-control" id="roleName" name="roleName" formControlName="name"
+      [ngClass]="{
+        'is-valid': !roleForm.controls.name.invalid && submitted,
+        'is-invalid': roleForm.controls.name.invalid && submitted
+      }">
+    <div class="invalid-feedback" *ngIf="roleForm.controls.name.invalid && submitted && roleForm.controls.name.hasError('required')">
+      Role name is required
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button type="submit" [mat-dialog-close]="roleForm.value"  class="btn btn-primary ">Save</button>
+    <button type="button"  class="btn btn-danger text-white" (click)="onNoClick()">Cancel</button>
+  </div>
+</form>

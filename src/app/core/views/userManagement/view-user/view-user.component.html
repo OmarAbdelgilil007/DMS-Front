@@ -1,0 +1,42 @@
+<form class="popup-form">
+  <div class="d-block d-flex justify-content-between ">
+    <h2 class=" pt-4">{{"user-details"|translate}}</h2>
+    <a class=" cancle-icon text-end text-decoration-none p-2" (click)="onCancel()"><i class="fa-solid fa-xmark"></i></a>
+    </div>
+    <hr>
+    <div class="form-group">
+      <label for="username" class="form-label pe-1">{{"userName"|translate}}: </label>
+      <span>{{ user.username }}</span>
+    </div>
+    <div class="form-group">
+      <label for="fullname" class="form-label pe-1">{{"fullName"|translate}}: </label>
+      <span>{{ user.fullname }}</span>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="form-label pe-1">{{"phone"|translate}}: </label>
+      <span>{{ user.phone }}</span>
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label pe-1">{{"Email"|translate}}: </label>
+      <span>{{ user.email }}</span>
+    </div>
+    <div class="form-group">
+      <label for="address" class="form-label pe-1">{{"Address"|translate}}: </label>
+      <span>{{ user.address }}</span>
+    </div>
+    <div class="form-group">
+      <label for="department" class="form-label pe-1">{{"department"|translate}}: </label>
+      <span>{{ departmentName }}</span>
+    </div>
+    <div class="form-group">
+      <label for="manager" class="form-label pe-1">{{"manager"|translate}}: </label>
+      <span>{{ managerName }}</span>
+    </div>
+    
+  </form>
+  <hr>
+  <div class="d-flex justify-content-end px-3 pb-3">
+    <button mat-button type="button" class="btn btn-primary" (click)="onCancel()">{{"close"|translate}}</button>
+  </div>
+
+  

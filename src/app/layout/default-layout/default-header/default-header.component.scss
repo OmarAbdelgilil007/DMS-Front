@@ -1,0 +1,105 @@
+/* General link styles */
+div a {
+    text-decoration: none !important;
+    color: #000 !important; /* Adjust the color to match the profile link style */
+    font-size: 16px !important; /* Adjust the font size to match the profile link style */
+    padding: 10px !important; /* Adjust the padding to match the profile link style */
+    display: inline-block !important;
+  }
+  
+  /* List styles */
+  ul {
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* List item styles */
+  ul li {
+    display: inline-block !important;
+    position: relative !important; /* Position relative for the dropdown */
+  }
+ 
+  
+  /* Hover state for list items */
+  ul li:hover {
+    background: #555 !important;
+  }
+  
+  /* Dropdown menu styles */
+  ul li:hover ul.dropdown-menu {
+    display: block !important;
+  }
+  
+  ul li ul.dropdown-menu {
+    position: absolute !important;
+    left: -200px !important; /* Display the dropdown to the left */
+    width: 200px !important;
+    display: none !important;
+    background: #fff !important;
+    padding: 10px 0 !important; /* Add padding for the dropdown menu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; /* Add shadow for better visibility */
+  }
+  
+  /* Dropdown menu items */
+  ul li ul.dropdown-menu li {
+    display: block !important;
+  }
+  
+  /* Dropdown menu item links */
+  ul li ul.dropdown-menu li a {
+    display: block !important;
+    padding: 10px 20px !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  
+  /* Hover state for dropdown menu items */
+  ul li ul.dropdown-menu li:hover {
+    background: #f1f1f1 !important; /* Change background color on hover */
+  }
+  
+  .language-switcher{
+    display: inline-block !important;
+  }
+  .custom-select {
+    appearance: none !important;
+    background-color: #5856d6 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 0.3rem .9rem !important;
+    font-size: 1rem !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    
+  }
+  
+  .custom-select:focus {
+    outline: none !important;
+  }
+  
+  .custom-select option {
+    display: inline-block !important;
+    background-color: #fff !important;
+    color: #5856d6 !important;
+  }
+
+  .margine-style{
+    margin-right: 50px !important;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  
+  .font-size{
+    font-size: small;
+  }
+  .margine-style-ar {
+  top:  5px; 
+  right: 10px; 
+}
+
+.margine-style-en {
+  top: -10px; 
+  right: -10px;
+}

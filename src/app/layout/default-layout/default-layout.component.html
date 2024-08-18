@@ -1,0 +1,101 @@
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "rgb(88,86,214)" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<c-sidebar 
+#sidebar1="cSidebar"
+class="border-end"
+id="sidebar1"
+visible
+[placement]="lang === 'en' ? 'start' : 'end'"
+>
+<c-sidebar-header class="border-bottom" >
+  <c-sidebar-brand [routerLink]="[]">
+    <h2>{{ 'DMS' | translate }}</h2>
+  </c-sidebar-brand>
+</c-sidebar-header>
+
+<ng-scrollbar #scrollbar="ngScrollbar" class="overflow" pointerEventsMethod="scrollbar" visibility="hover" >
+  <c-sidebar-nav #overflow  dropdownMode="close" compact />
+  <div class="sidebar">
+    <ul class="sidebar-nav">
+      <li>
+        <a routerLink="/Dashboard" routerLinkActive="active" (click)="setActiveNavItem('Dashboard')" [class.active]="activeNavItem === 'Dashboard'">
+          <mat-icon>dashboard</mat-icon>
+          <span class="text-capitalize">{{ 'Dashboard' | translate }}</span>
+        </a>
+      </li>
+      <li *ngIf="userRole === 'Admin'">
+        <a (click)="toggleManagement('Users')" >
+          <mat-icon>group</mat-icon>
+          <span class="text-capitalize">{{ 'Users' | translate }}</span>
+          <mat-icon class="dropdown-icon">{{ userManagementOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+        </a>
+        <ul *ngIf="userManagementOpen" class="sidebar-submenu">
+          <li *ngFor="let item of userManagementItems">
+            <a routerLink="{{ item.link }}" (click)="setActiveNavItem(item.name)" [class.active]="activeNavItem === item.name">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span class="text-capitalize">{{ item.label | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="userRole === 'Admin'">
+        <a  (click)="toggleManagement('Logs')" [class.active]="activeNavItem === 'Logs'">
+          <mat-icon>history</mat-icon>
+          <span class="text-capitalize">{{ 'Logs' | translate }}</span>
+          <mat-icon class="dropdown-icon">{{ logsManagementOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+        </a>
+        <ul *ngIf="logsManagementOpen" class="sidebar-submenu">
+          <li *ngFor="let item of logsManagementItems">
+            <a routerLink="{{ item.link }}" (click)="setActiveNavItem(item.name)" [class.active]="activeNavItem === item.name">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span class="text-capitalize">{{ item.label | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a (click)="toggleManagement('Clients')" >
+          <mat-icon>work</mat-icon>
+          <span class="text-capitalize">{{ 'Clients' | translate }}</span>
+          <mat-icon class="dropdown-icon">{{ clientsManagementOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+        </a>
+        <ul *ngIf="clientsManagementOpen" class="sidebar-submenu">
+          <li *ngFor="let item of clientsManagementItems">
+            <a routerLink="{{ item.link }}" (click)="setActiveNavItem(item.name)" [class.active]="activeNavItem === item.name">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span class="text-capitalize">{{ item.label | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  
+</ng-scrollbar>
+@if (!sidebar1.narrow) {
+  <c-sidebar-footer cSidebarToggle="sidebar1" class="border-top d-none d-lg-flex" toggle="unfoldable" style="cursor: pointer;">
+    <button cSidebarToggler></button>
+  </c-sidebar-footer>
+}
+</c-sidebar>
+
+<div [dir]="lang=='en'?'ltr':'rtl'"> 
+<!--main-->
+<div class="wrapper d-flex flex-column min-vh-100" >
+  <!--app-header-->
+  <app-default-header [cShadowOnScroll]="'sm'"
+                      class="mb-4 d-print-none header header-sticky p-0 shadow-sm"
+                      position="sticky"
+                      sidebarId="sidebar1" />
+  <!--app-body-->
+  <div class="body flex-grow-1">
+    <c-container breakpoint="lg" class="h-auto px-1 overflow-hidden ">
+      <router-outlet />
+    </c-container>
+  </div>
+  <!--app footer-->
+  <app-default-footer />
+</div>
+
+</div>

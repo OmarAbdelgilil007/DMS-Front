@@ -1,0 +1,16 @@
+<form class="popup-form">
+    <h2 class="pt-3">{{"department-details"|translate}}</h2>
+    <hr>
+    <div class="form-group">
+      <label for="departmentName" class="form-label pe-1">{{"Department-Name"|translate}}: </label>
+      <span>{{ itemData.name }}</span>
+    </div>
+    
+    
+  </form>
+  <hr>
+<div class="text-end m-2">
+  <button mat-button type="button" class="btn btn-primary" (click)="onClose()">{{"close"|translate}}</button>
+</div>
+  
+  

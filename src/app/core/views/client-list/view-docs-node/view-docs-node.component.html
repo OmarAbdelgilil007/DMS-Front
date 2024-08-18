@@ -1,0 +1,14 @@
+<div class="d-block d-flex justify-content-between">
+  <h2 class="ps-3 pt-4">{{ 'Node Details' | translate }}</h2>
+  <a class="cancle-icon text-end text-decoration-none p-2" (click)="closeDialog()">
+      <i class="fa-solid fa-xmark"></i>
+  </a>
+</div>
+<hr />
+<div class="add-node">
+  <p class="p-2"><span class="fw-bold">{{ 'Name' | translate }}:</span> {{ nodeDetails.name }}</p>
+  <p class="ps-2"><span class="fw-bold">{{ 'Description' | translate }}:</span> {{ nodeDetails.description }}</p>
+</div>
+<div class="text-end m-2">
+  <button mat-button type="button" class="btn btn-primary" (click)="closeDialog()">{{ 'Close' | translate }}</button>
+</div>

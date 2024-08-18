@@ -1,0 +1,16 @@
+<form class="popup-form">
+  <h2 class="pt-3">{{ 'Client Details' | translate }}</h2>
+  <hr>
+
+  <div class="form-group">
+      <label class="form-label pe-1">{{ 'Client Name' | translate }}:</label>
+      <span>{{ clientModel.name }}</span>
+  </div>
+  <div class="form-group">
+      <label class="form-label pe-1">{{ 'Client Description' | translate }}:</label>
+      <span>{{ clientModel.description }}</span>
+  </div>
+  <div class="button-group">
+      <button mat-button type="button" class="btn btn-primary" (click)="onClose()">{{ 'Close' | translate }}</button>
+  </div>
+</form>

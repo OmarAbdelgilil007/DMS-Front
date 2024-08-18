@@ -1,0 +1,37 @@
+.user-form {
+  max-width: 700px;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+}
+
+
+.custom-file-input {
+  width: 100%;
+}
+.cancel-button {
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancle-icon{
+  cursor: pointer;
+}
+.mat-mdc-text-field-wrapper {
+  height: 500px !important; 
+}
+
+.mat-mdc-text-field-wrapper {
+  height: 50px !important;
+  flex: auto;
+  will-change: auto;
+  background-color: #f0f0f0 !important;
+}
+.font-style{
+  font-size: small;
+  padding-right: 10px;
+}

@@ -1,0 +1,51 @@
+.popup-form {
+    max-width: 400px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 350px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .invalid-feedback {
+    color: #dc3545;
+    font-size: 14px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn {
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover, .btn-secondary:hover {
+    opacity: 0.8;
+  }
+  
+  .cancel-button {
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  .cancle-icon{
+    cursor: pointer;
+  }

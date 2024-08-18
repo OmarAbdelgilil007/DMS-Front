@@ -1,0 +1,54 @@
+<div>
+  <a routerLink="/dashboard" class="text-primary text-decoration-none pointer">{{ 'auditLogs.DMS' | translate }} / </a>
+  <span class="text-black-50 pointer">{{ 'auditLogs.Logs' | translate }} /</span> <a class="text-decoration-none pointer">{{ 'auditLogs.AuditLogs' | translate }}</a>
+</div>
+
+<div class="row pt-3">
+  <div class="col-md-12 text-end">
+    <mat-form-field>
+      <mat-label>{{ 'auditLogs.Filter' | translate }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" class="w-100">
+    </mat-form-field>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 overflow-visible">
+  <ng-container matColumnDef="dateTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.DateTime' | translate }}</th>
+    <td mat-cell *matCellDef="let item">{{ item.dateTime | date: 'medium' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.Type' | translate }}</th>
+    <td mat-cell *matCellDef="let item">{{ item.type }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.Name' | translate }}</th>
+    <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.Role' | translate }}</th>
+    <td mat-cell *matCellDef="let item">{{ item.role }}</td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="tableName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.TableName' | translate }}</th>
+    <td mat-cell *matCellDef="let item">{{ item.tableName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="newValues">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auditLogs.NewValues' | translate }}</th>
+    <td mat-cell *matCellDef="let item">
+      <span *ngIf="item.newValues; else noValues" [innerHTML]="replaceAndSanitize(item.newValues)"></span>
+      <ng-template #noValues>{{ 'auditLogs.NoValues' | translate }}</ng-template>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['dateTime', 'type', 'name','tableName', 'newValues']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['dateTime', 'type', 'name','tableName', 'newValues']"></tr>
+</table>
+
+<mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)">
+</mat-paginator>

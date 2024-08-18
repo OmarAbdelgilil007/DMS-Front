@@ -1,0 +1,110 @@
+<ng-container>
+  
+  
+  <c-container [fluid]="true" class="border-bottom px-4">
+    <button
+      [cSidebarToggle]="sidebarId"
+      cHeaderToggler
+      class="btn"
+      toggle="visible"
+      style="margin-inline-start: -14px;"
+    >
+    
+      <svg cIcon name="cilMenu" size="lg"></svg>
+    </button>
+    
+    <div class="language-switcher">
+      <select class="custom-select" (change)="selectLang(lang.value)" #lang>
+        <option value="en">En</option>
+        <option value="ar">Ar</option>
+      </select>
+    </div>
+    <div class="d-none d-md-flex ms-auto position-relative">
+      <a cNavLink routerLink="/Notification-List">
+        <svg cIcon class="my-1 me-2" name="cilBell" size="xl"></svg>
+      </a>
+      <span [ngClass]="{'margine-style-ar': isLangArabic()}"
+            class="position-absolute badge rounded-pill bg-danger">
+        {{ notificationCount }}
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </div>
+    
+    <c-header-nav class="ms-auto ms-md-0">
+      <div class="nav-item py-1">
+        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+      </div>
+      <ng-container *ngTemplateOutlet="themeDropdown"></ng-container>
+      <div class="nav-item py-1">
+        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+      </div>
+      
+
+    </c-header-nav>
+    
+
+    <c-header-nav class="mx-0">
+      <ng-container *ngTemplateOutlet="userDropdown"></ng-container>
+      
+    </c-header-nav>
+  </c-container>
+</ng-container>
+
+<ng-template #userDropdown>
+  
+  <c-dropdown [popperOptions]="{ placement: 'bottom-start' }" variant="nav-item">
+    <button [caret]="false" cDropdownToggle class="pt-3">
+      <c-avatar
+        shape="rounded-1"
+        [size]="'md'"
+        src="../../../../assets/brand/user.png"
+        status="success"
+        textColor="primary"
+      ></c-avatar>
+    </button>
+    <ul cDropdownMenu class="pt-0 w-auto">
+      <li class="w-100 pointer">
+        <a cDropdownItem (click)="openChangePasswordDialog()">
+          <svg cIcon class="me-2" name="cil-lock-locked"></svg>
+          {{"Change Password"|translate}}
+        </a>
+      </li>
+      
+      <li>
+        <hr cDropdownDivider />
+      </li>
+      <li class="w-100 pointer">
+        <a cDropdownItem (click)="logout()">
+          <svg cIcon class="me-2" name="cilAccountLogout"></svg>
+          {{"logout"|translate}}
+        </a>
+      </li>
+    </ul>
+  </c-dropdown>
+  <div class=" ps-3 pt-3 ">
+    <h5 class="">{{userName}}  <span class="fw-light text-black-50 font-size">({{userRole}})</span>  <br> <span class="fw-light text-black-50 font-size">{{Email}}</span></h5>
+
+
+  </div>
+</ng-template>
+
+<ng-template #themeDropdown>
+  <c-dropdown alignment="end" variant="nav-item">
+    <button [caret]="false" cDropdownToggle>
+      <svg cIcon [name]="icons()" size="lg"></svg>
+    </button>
+    <div cDropdownMenu>
+      <ng-container *ngFor="let mode of colorModes">
+        <button
+          (click)="colorMode.set(mode.name)"
+          [class.active]="colorMode() === mode.name"
+          cDropdownItem
+          class="d-flex align-items-center"
+        >
+          <svg cIcon class="me-2" [name]="mode.icon" size="lg"></svg>
+          {{ mode.text }}
+        </button>
+      </ng-container>
+    </div>
+  </c-dropdown>
+</ng-template>

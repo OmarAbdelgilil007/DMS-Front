@@ -1,0 +1,118 @@
+<div class="d-block d-flex justify-content-between">
+  <h2 class="ps-3 pt-4" *ngIf="headerFlag">{{ 'EDIT_CLIENT' | translate }}</h2>
+  <h2 class="ps-3 pt-4" *ngIf="!headerFlag">{{ 'ADD_CLIENT' | translate }}</h2>
+  <a class="cancle-icon text-end text-decoration-none p-2" (click)="onNoClick()"
+    ><i class="fa-solid fa-xmark"></i
+  ></a>
+</div>
+<hr />
+<section class="add-node">
+  <form [formGroup]="nodeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group px-3 pt-2">
+      <label for="name" class="font-weight-bold"
+        >{{ 'client-Name' | translate }}<span class="required text-danger ps-1">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="{{ 'client-placeholder' | translate }}"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group px-3 py-2">
+      <label for="description" class="font-weight-bold">{{ 'client-desc' | translate }}</label>
+      <textarea
+        class="form-control"
+        id="description"
+        rows="3"
+        placeholder="{{ 'client-placeholder' | translate }}"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="form-group px-3 pt-2" *ngIf="clientModel.height === 1 || clientModel.height === 2">
+      <label for="startDate" class="font-weight-bold">{{ 'Start Date' | translate }}</label>
+      <input type="date" class="form-control" id="startDate" formControlName="startDate" />
+    </div>
+    <div class="form-group px-3 pt-2" *ngIf="clientModel.height === 1 || clientModel.height === 2">
+      <label for="endDate" class="font-weight-bold">{{ 'End Date' | translate }}</label>
+      <input type="date" class="form-control" id="endDate" formControlName="endDate" />
+    </div>
+    <div class="row" *ngIf="clientModel.height > 1">
+      <div class="col-md-6">
+        <div class="form-group px-3 pt-2">
+          <label for="officerId" class="font-weight-bold">{{ 'Officer' | translate }}</label>
+          <select
+            formControlName="officerId"
+            class="form-control"
+            id="officerId"
+            [disabled]="userRole === 'Officer'"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let user of officers" [value]="user.id">
+              {{ user.fullname }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group px-3 pt-2">
+          <label for="adminId" class="font-weight-bold">{{ 'Admin' | translate }}</label>
+          <select formControlName="adminId" class="form-control" id="adminId">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let user of admins" [value]="user.id">
+              {{ user.fullname }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="clientModel.height > 1">
+      <div class="col-md-6">
+        <div class="form-group px-3 pt-2">
+          <label for="qcId" class="font-weight-bold">{{ 'QC1' | translate }}</label>
+          <select formControlName="qC1Id" class="form-control" id="qcId">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let user of qc1s" [value]="user.id">
+              {{ user.fullname }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group px-3 pt-2">
+          <label for="qcId2" class="font-weight-bold">{{ 'QC2' | translate }}</label>
+          <select formControlName="qC2Id" class="form-control" id="qcId2">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let user of qc2s" [value]="user.id">
+              {{ user.fullname }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group px-3 pt-2" *ngIf="(userRole === 'Admin' || userRole === 'Officer') && clientModel.height > 1">
+      <label for="endUserId" class="font-weight-bold">{{ 'End User' | translate }}</label>
+      <select formControlName="endUserId" class="form-control" id="endUserId">
+        <option [ngValue]="null"></option>
+        <option *ngFor="let user of endUsers" [value]="user.id">
+          {{ user.fullname }}
+        </option>
+      </select>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-end p-3">
+      <button
+        mat-button
+        type="button"
+        (click)="onNoClick()"
+        class="btn cancel-button me-2"
+      >
+        {{ 'cancle-btn' | translate }}
+      </button>
+      <button mat-button type="submit" class="btn btn-primary">
+        {{ clientModel.id > 0 ? ("update-btn" | translate) : ("apply-btn" | translate) }}
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,37 @@
+.card-body {
+  padding: 0 !important;
+}
+
+.btn-blue {
+  background-color: #11075e;
+}
+.show-password {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  transform: translate(-25%, -25%);
+}
+.height-image{
+  height: 328px;
+}
+input {
+  position: relative !important;
+}
+.background {
+  background-image: url("../../../../assets/images/avatars/background-auth.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.card-wider {
+  width: 100%;
+}
+.spinner-sm {
+  width: 1rem;
+  height: 1rem;
+}
+button{
+  border-left: none !important;
+  border-color: rgba(39, 38, 38, 0.205);
+}

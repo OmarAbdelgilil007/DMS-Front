@@ -1,0 +1,40 @@
+<div class="d-block d-flex justify-content-between">
+  <h1 mat-dialog-title>{{ 'Add' | translate }} {{ data.AddText }}s</h1>
+  <a class="cancel-icon text-end text-decoration-none p-2" [mat-dialog-close]
+    ><i class="fa-solid fa-xmark"></i
+  ></a>
+</div>
+<hr />
+
+<div *ngIf="Node">
+  
+  <div mat-dialog-content>
+    <input
+      matInput
+      [(ngModel)]="NodeChilds"
+      (change)="changeNodeChilds()"
+      type="number"
+    />
+  </div>
+  <hr>
+  <div class="d-flex justify-content-end p-3">
+    <button
+      mat-button
+      type="button"
+      [mat-dialog-close]
+      class="btn cancel-button me-2"
+    >
+      {{ 'Cancel' | translate }}
+    </button>
+    <button
+      mat-button
+      (click)="AddNodes()"
+      [mat-dialog-close]
+      cdkFocusInitial
+      class="btn btn-primary"
+    >
+      {{ 'Save' | translate }}
+    </button>
+  </div>
+  
+</div>
